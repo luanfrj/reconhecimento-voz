@@ -1,3 +1,9 @@
+% % % % % % % % % % % % % % % % % % % % % %
+% Trabalho da Discplina PDS/RP
+% Jorge, Leonardo e Luan
+% Programa para salvar os exemplos que serão usados para treinamento
+% % % % % % % % % % % % % % % % % % % % % %
+
 clear all
 close all
 
