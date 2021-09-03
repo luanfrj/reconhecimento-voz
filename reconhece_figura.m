@@ -28,6 +28,19 @@ C = extrai_caracteristicas(Xn, F, S)';
 
 rotulo = predict(KNN,C);
 
+switch rotulo
+case 'c'
+    disp('Circulo');
+case 'e'
+    disp('Elipse');
+case 'q'
+    disp('Quadrado');
+case 'r'
+    disp('Retângulo');
+case 't'
+    disp('Triângulo');
+end
+
 function output = detecta_silencio(x,n)
     output = zeros(length(x),1);
     Emax = max(x);
