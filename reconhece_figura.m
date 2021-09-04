@@ -12,9 +12,28 @@ load('samples.mat');
 % Gera o modelo KNN
 KNN = fitcknn(caracteristicas, rotulos, 'NumNeighbors',5);
 
-arquivo = input('Digite o nome do arquivo contendo o audio: ');
+disp('Escolha a opção:')
+disp('1 - Ler do arquivo.')
+disp('2 - Gravar voz.')
 
-[Xn, Fs] = audioread(arquivo);
+opcao = input();
+
+switch opcao
+case 1
+    arquivo = input('Digite o nome do arquivo contendo o audio: ');
+    [Xn, Fs] = audioread(arquivo);
+
+case 2
+    Fs = 8000;
+    Nb = 16;
+    gravador = audiorecorder(Fs,Nb,1);
+    pause(0.5);
+    disp('Comece a falar.');
+    recordblocking(gravador, 3);
+    disp('Fim da gravação.');
+    Xn = getaudiodata(gravador);
+end
+
     
 silencios = detecta_silencio(Xn,10);    % Detecta silêncios
 output = strfind(silencios', [1 0]);    % Encontra onde o silêncio termina

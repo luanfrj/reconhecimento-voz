@@ -9,16 +9,17 @@ close all
 
 Fs = 8000;
 Nb = 16;
-quadrado = audiorecorder(Fs,Nb,1);
+gravador = audiorecorder(Fs,Nb,1);
 
 palavra = input('Digite a palavra (entre aspas) que será gravada: ');
+pause(0.5);
 
 for (i = 1:10)
     str = compose("Palavra %2d. Comece a falar.", i);
     disp(str);
-    recordblocking(quadrado, 3);
+    recordblocking(gravador, 3);
     disp('Fim da gravação. Reproduzindo ...');
-    X = getaudiodata(quadrado);
+    X = getaudiodata(gravador);
     % sound(X)
     arquivo = compose("%s%02d.wav", palavra, i);
     audiowrite(arquivo, X, Fs);
