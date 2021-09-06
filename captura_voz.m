@@ -18,7 +18,7 @@ for (i = 1:10)
     str = compose("Palavra %2d. Comece a falar.", i);
     disp(str);
     recordblocking(gravador, 3);
-    disp('Fim da gravação. Reproduzindo ...');
+    disp('Fim da gravação.');
     X = getaudiodata(gravador);
     % sound(X)
     arquivo = compose("%s%02d.wav", palavra, i);

@@ -73,12 +73,6 @@ function [caracteristicas, rotulos] = gera_base(arquivos, palavra)
 
         caracteristicas = [caracteristicas; extrai_caracteristicas(Xn, F, S)'];
         rotulos = [rotulos; palavra(1)];
-
-        % sound(Xn, Fs);
-        % pause(0.5);
-        % subplot(10,1,j)
-        % plot(Xn);
-        % grid on
     end
 end
 

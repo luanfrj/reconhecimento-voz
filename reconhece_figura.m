@@ -20,7 +20,7 @@ opcao = input();
 
 switch opcao
 case 1
-    arquivo = input('Digite o nome do arquivo contendo o audio: ');
+    arquivo = input('Digite o nome do arquivo (entre aspas) contendo o audio: ');
     [Xn, Fs] = audioread(arquivo);
 
 case 2
