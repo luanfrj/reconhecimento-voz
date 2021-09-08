@@ -17,6 +17,7 @@ total = length(arquivos);
 acertos = 0;
 erros = 0;
 
+figure()
 for j=1:length(arquivos)
 
     nome = compose("Teste/%s", arquivos(j).name);
@@ -37,12 +38,23 @@ for j=1:length(arquivos)
     % Extrai as características da voz lida
     C = extrai_caracteristicas(Xn, F, S)';
 
-    rotulo = predict(KNN,C);
-    if(rotulo == arquivos(j).name(1))
+    rotulo_predito = predict(KNN,C);
+    rotulo_verdadeiro = arquivos(j).name(1);
+
+    msg = compose("Predito: %s Verdadeiro: %s", rotulo_predito, rotulo_verdadeiro);
+    disp(msg) 
+    if(rotulo_predito == rotulo_verdadeiro)
         acertos = acertos + 1;
     else
         erros = erros + 1;
     end
+
+    % sound(Xn, Fs)
+    % pause(0.5)
+
+    subplot(round(length(arquivos)/2),2,j)
+    plot(Xn);
+    grid on
 end
 
 disp("Percentual de acertos: ")
