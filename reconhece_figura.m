@@ -16,7 +16,7 @@ disp('Escolha a opção:')
 disp('1 - Ler do arquivo.')
 disp('2 - Gravar voz.')
 
-opcao = input();
+opcao = input('-> ');
 
 switch opcao
 case 1
